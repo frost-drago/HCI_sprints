@@ -1,0 +1,74 @@
+
+/* Basic calendar grid layout */
+.calendar {
+    width: 100%;
+    height: 100vh;
+
+    background-color: aqua;
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days of the week */
+    grid-template-rows: 1fr;
+}
+
+.day {
+    border: 1px solid #ccc;
+    position: relative;
+
+    /* necessary for making 24 hours in a day */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(24, 100px); /* 24 hours in a day */
+}
+
+.container {
+    background-color: #686868;
+    padding: 1rem;
+    margin-top: 1rem;
+
+    /* necessary for placing it inside one grid box in parent: day */
+    grid-column: 1 / 1;
+}
+
+/* Task styles */
+.task {
+    background-color: #4caf50;
+    color: white;
+    left: 0;
+    width: 100%;
+    cursor: pointer;
+
+    /* initial height */
+    height: 90px; 
+    
+    /* necessary for absolute-positioning of the child: resize-handle */
+    position: relative; 
+
+    /* necessary for adjustable-sizing of the child: drag-and-drop-handle */ 
+    display: flex; 
+    flex-direction: column;
+}
+
+/* Handle for moving the task to another div. Height follows the size of the div.*/
+.drag-and-drop-handle {
+
+    /* necessary for automatically taking up the remaining space */ 
+    flex: 1; 
+}
+
+/* Resize handle for bottom of the task box */
+.resize-handle {
+    width: 100%;
+    height: 10px;
+    cursor: ns-resize;
+    background-color: #333;
+
+    /* necessary for putting the resize handle at the bottom of the task box */ 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.dragging {
+    opacity: 0.5;
+}

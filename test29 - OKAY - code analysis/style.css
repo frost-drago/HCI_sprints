@@ -1,0 +1,39 @@
+
+/* Basic calendar grid layout */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days of the week */
+    grid-template-rows: repeat(24, 1fr); /* 24 hours in a day */
+    width: 100%;
+    height: 100vh;
+
+    background-color: aqua;
+}
+
+.day {
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+/* Task styles */
+.task {
+    background-color: #4caf50;
+    color: white;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    cursor: pointer;
+
+    height: 90px; /* initial height */
+}
+
+/* Resize handle for bottom of the task box */
+.resize-handle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    cursor: ns-resize;
+    background-color: #333;
+}

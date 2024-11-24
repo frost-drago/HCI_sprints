@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resizable Task Box</title>
+    <style>
+        /* Basic calendar grid layout */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr); /* 7 days of the week */
+            grid-template-rows: repeat(24, 1fr); /* 24 hours in a day */
+            width: 100%;
+            height: 100vh;
+        }
+
+        .day {
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        /* Task styles */
+        .task {
+            background-color: #4caf50;
+            color: white;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /* Resize handle for bottom of the task box */
+        .resize-handle {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            cursor: ns-resize;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <div class="day">
+            <div class="task" style="top: 100px; height: 100px">
+                Task 1
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+        <!-- Repeat for other days... -->
+    </div>
+
+    <script>
+        const tasks = document.querySelectorAll(".task");
+
+        tasks.forEach((task) => {
+            const resizeHandle = task.querySelector(".resize-handle");
+            let isResizing = false;
+
+            // Mouse down event to start resizing
+            resizeHandle.addEventListener("mousedown", (e) => {
+                isResizing = true;
+                document.body.style.cursor = "ns-resize"; // Change cursor style
+                const initialY = e.clientY;
+                const initialHeight = parseInt(window.getComputedStyle(task).height, 10);
+
+                // Mouse move event to resize the task
+                const mouseMoveHandler = (moveEvent) => {
+                    if (isResizing) {
+                        const deltaY = moveEvent.clientY - initialY;
+                        task.style.height = (initialHeight + deltaY) + "px"; // Fixed the template literal issue
+                    }
+                };
+
+                // Mouse up event to stop resizing
+                const mouseUpHandler = () => {
+                    isResizing = false;
+                    document.removeEventListener("mousemove", mouseMoveHandler);
+                    document.removeEventListener("mouseup", mouseUpHandler);
+                    document.body.style.cursor = ""; // Reset cursor style
+                };
+
+                document.addEventListener("mousemove", mouseMoveHandler);
+                document.addEventListener("mouseup", mouseUpHandler);
+            });
+        });
+    </script>
+</body>
+</html>

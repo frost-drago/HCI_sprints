@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrioriDo</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/task-style.css">
+    <link rel="stylesheet" href="styles/matrix-style.css">
+    <link rel="stylesheet" href="styles/matrix-node-style.css">
+</head>
+<body>
+    <div class="calendar">
+        <div class="time-bar">
+            <div class="time-label"><p>00:00</p></div>
+            <div class="time-label"><p>01:00</p></div>
+            <div class="time-label"><p>02:00</p></div>
+            <div class="time-label"><p>03:00</p></div>
+            <div class="time-label"><p>04:00</p></div>
+            <div class="time-label"><p>05:00</p></div>
+            <div class="time-label"><p>06:00</p></div>
+            <div class="time-label"><p>07:00</p></div>
+            <div class="time-label"><p>08:00</p></div>
+            <div class="time-label"><p>09:00</p></div>
+            <div class="time-label"><p>10:00</p></div>
+            <div class="time-label"><p>11:00</p></div>
+            <div class="time-label"><p>12:00</p></div>
+            <div class="time-label"><p>13:00</p></div>
+            <div class="time-label"><p>14:00</p></div>
+            <div class="time-label"><p>15:00</p></div>
+            <div class="time-label"><p>16:00</p></div>
+            <div class="time-label"><p>17:00</p></div>
+            <div class="time-label"><p>18:00</p></div>
+            <div class="time-label"><p>19:00</p></div>
+            <div class="time-label"><p>20:00</p></div>
+            <div class="time-label"><p>21:00</p></div>
+            <div class="time-label"><p>22:00</p></div>
+            <div class="time-label"><p>23:00</p></div>
+        </div>
+        <div class="day">
+            <div class="calendar-slot">
+                <!--Demo task -->
+                
+            </div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+        </div>
+        <!-- Repeat for other days... -->
+        <div class="day">
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+        </div>
+        <!-- Repeat for other days... -->
+        <div class="day">
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+        </div>
+        <!-- Repeat for other days... -->
+        <div class="day">
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+        </div>
+        <!-- Repeat for other days... -->
+        <div class="day">
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+        </div>
+        <!-- Repeat for other days... -->
+        <div class="day">
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+        </div>
+        <!-- Repeat for other days... -->
+        <div class="day">
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+            <div class="calendar-slot"></div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <!-- Matrix section -->
+        <div class="matrix">
+            <!-- Matrix title -->
+            <h2>Matrix</h2>
+            <!-- Matrix grid -->
+            <div class="matrix-slots">
+                <div class="matrix-label"><p>Difficulty</p></div>
+                <div class="row">
+                    <div class="axis-label-Y"><p>7</p></div>
+                    <div id="X1_Y7" class="matrix-slots-container X1 Y7"></div>
+                    <div id="X2_Y7" class="matrix-slots-container X2 Y7"></div>
+                    <div id="X3_Y7" class="matrix-slots-container X3 Y7"></div>
+                    <div id="X4_Y7" class="matrix-slots-container X4 Y7"></div>
+                    <div id="X5_Y7" class="matrix-slots-container X5 Y7"></div>
+                    <div id="X6_Y7" class="matrix-slots-container X6 Y7"></div>
+                    <div id="X7_Y7" class="matrix-slots-container X7 Y7"></div>
+                </div>
+                <div class="row">
+                    <div class="axis-label-Y"><p>6</p></div>
+                    <div id="X1_Y6" class="matrix-slots-container X1 Y6"></div>
+                    <div id="X2_Y6" class="matrix-slots-container X2 Y6"></div>
+                    <div id="X3_Y6" class="matrix-slots-container X3 Y6"></div>
+                    <div id="X4_Y6" class="matrix-slots-container X4 Y6"></div>
+                    <div id="X5_Y6" class="matrix-slots-container X5 Y6"></div>
+                    <div id="X6_Y6" class="matrix-slots-container X6 Y6"></div>
+                    <div id="X7_Y6" class="matrix-slots-container X7 Y6"></div>
+                </div>
+                <div class="row">
+                    <div class="axis-label-Y"><p>5</p></div>
+                    <div id="X1_Y5" class="matrix-slots-container X1 Y5"></div>
+                    <div id="X2_Y5" class="matrix-slots-container X2 Y5"></div>
+                    <div id="X3_Y5" class="matrix-slots-container X3 Y5"></div>
+                    <div id="X4_Y5" class="matrix-slots-container X4 Y5"></div>
+                    <div id="X5_Y5" class="matrix-slots-container X5 Y5"></div>
+                    <div id="X6_Y5" class="matrix-slots-container X6 Y5"></div>
+                    <div id="X7_Y5" class="matrix-slots-container X7 Y5"></div>
+                </div>
+                <div class="row">
+                    <div class="axis-label-Y"><p>4</p></div>
+                    <div id="X1_Y4" class="matrix-slots-container X1 Y4"></div>
+                    <div id="X2_Y4" class="matrix-slots-container X2 Y4"></div>
+                    <div id="X3_Y4" class="matrix-slots-container X3 Y4"></div>
+                    <div id="X4_Y4" class="matrix-slots-container X4 Y4"></div>
+                    <div id="X5_Y4" class="matrix-slots-container X5 Y4"></div>
+                    <div id="X6_Y4" class="matrix-slots-container X6 Y4"></div>
+                    <div id="X7_Y4" class="matrix-slots-container X7 Y4"></div>
+                </div>
+                <div class="row">
+                    <div class="axis-label-Y"><p>3</p></div>
+                    <div id="X1_Y3" class="matrix-slots-container X1 Y3"></div>
+                    <div id="X2_Y3" class="matrix-slots-container X2 Y3"></div>
+                    <div id="X3_Y3" class="matrix-slots-container X3 Y3"></div>
+                    <div id="X4_Y3" class="matrix-slots-container X4 Y3"></div>
+                    <div id="X5_Y3" class="matrix-slots-container X5 Y3"></div>
+                    <div id="X6_Y3" class="matrix-slots-container X6 Y3"></div>
+                    <div id="X7_Y3" class="matrix-slots-container X7 Y3"></div>
+                </div>
+                <div class="row">
+                    <div class="axis-label-Y"><p>2</p></div>
+                    <div id="X1_Y2" class="matrix-slots-container X1 Y2"></div>
+                    <div id="X2_Y2" class="matrix-slots-container X2 Y2"></div>
+                    <div id="X3_Y2" class="matrix-slots-container X3 Y2"></div>
+                    <div id="X4_Y2" class="matrix-slots-container X4 Y2"></div>
+                    <div id="X5_Y2" class="matrix-slots-container X5 Y2"></div>
+                    <div id="X6_Y2" class="matrix-slots-container X6 Y2"></div>
+                    <div id="X7_Y2" class="matrix-slots-container X7 Y2"></div>
+                </div>
+                <div class="row">
+                    <div class="axis-label-Y"><p>1</p></div>
+                    <div id="X1_Y1" class="matrix-slots-container X1 Y1"></div>
+                    <div id="X2_Y1" class="matrix-slots-container X2 Y1"></div>
+                    <div id="X3_Y1" class="matrix-slots-container X3 Y1"></div>
+                    <div id="X4_Y1" class="matrix-slots-container X4 Y1"></div>
+                    <div id="X5_Y1" class="matrix-slots-container X5 Y1"></div>
+                    <div id="X6_Y1" class="matrix-slots-container X6 Y1"></div>
+                    <div id="X7_Y1" class="matrix-slots-container X7 Y1"></div>
+                </div>
+                <div class="row">
+                    <div class="corner"><p>0</p></div>
+                    <div class="axis-label-X"><p>1</p></div>
+                    <div class="axis-label-X"><p>2</p></div>
+                    <div class="axis-label-X"><p>3</p></div>
+                    <div class="axis-label-X"><p>4</p></div>
+                    <div class="axis-label-X"><p>5</p></div>
+                    <div class="axis-label-X"><p>6</p></div>
+                    <div class="axis-label-X">
+                        <p>7</p>
+                        <p>Impact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add task section -->
+        <h2>Add task</h2>
+        <!-- Task management container -->
+        <div id="task-management-container">
+            <!-- Add task -->
+            <div id="task-form">
+                <label for="task-name">Task Name:</label>
+                <input type="text" id="task-name" required>
+
+                <label for="impact">Impact (1-7):</label>
+                <input type="number" id="impact" min="1" max="7" required>
+                
+                <label for="difficulty">Difficulty (1-7):</label>
+                <input type="number" id="difficulty" min="1" max="7" required>
+
+                <label for="task-description">Description:</label>
+                <textarea id="task-description"></textarea>
+
+                <!-- Add radio buttons for color selection -->
+                <label>Color:</label>
+                <input type="radio" name="color" value="blue" id="color-blue" checked>
+                <label for="color-blue">Blue (One-off tasks)</label>
+
+                <input type="radio" name="color" value="green" id="color-green">
+                <label for="color-green">Green (Side-quests)</label>
+
+                <input type="radio" name="color" value="red" id="color-red">
+                <label for="color-red">Red (Tasks with penalty)</label>
+
+                <button onclick="add_task()">Add Task</button>
+            </div>
+        </div>
+
+        <!-- Task list section -->
+        <h2>Task list</h2>
+        <div class="task-list">
+        
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

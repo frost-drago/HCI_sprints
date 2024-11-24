@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    border: 1px solid black;
+}
+
+.container {
+    background-color: #333;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.sidebar {
+    background-color: rgb(12, 88, 164);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.draggable-item {
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid black;
+    cursor: move;
+}
+
+.draggable-item.dragging {
+    opacity: .5;
+}

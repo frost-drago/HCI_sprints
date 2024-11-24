@@ -1,0 +1,434 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: #f5faff;
+}
+
+/* Week Header Section */
+.week-header {
+    display: flex; /* Use flexbox layout for easy alignment */
+    justify-content: space-between; /* Distribute space evenly between elements */
+    align-items: center; /* Vertically center items */
+    background-color: #007acc; /* Set the background color to a blue shade */
+    color: white; /* Set text color to white for contrast */
+    padding: 10px; /* Add padding around the content for spacing */
+    position: sticky; /* Make the header stick to the top of the viewport */
+    top: 0; /* Ensure it sticks to the top */
+    z-index: 10; /* Keep the header above other content */
+}
+
+
+/* Main Container */
+.main-container {
+    display: flex;
+    height: calc(100vh - 50px);
+    overflow: hidden;
+}
+
+/* Calendar Section */
+.calendar-section {
+    flex: 3;
+    background-color: white;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+}
+
+/* Time and Days Section */
+.time-days-container {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Time Section */
+.time-section {
+    width: 100px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+
+.time{
+    padding: 10px;
+    height: 60px;
+    background-color: #f0f8ff;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+
+}
+
+.time-section .hour {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.hour {
+    height: 60px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+
+}
+
+
+/* Days Section */
+.days-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+
+.day {
+    background-color: #007acc;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.task-slot-calendar {
+    height: 60px;
+    background-color: #f0f8ff;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+}
+
+/* Sidebar Section */
+.sidebar {
+    flex: 1;
+    background-color: #007acc;
+    color: white;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.matrix {
+    margin-bottom: 20px;
+}
+
+.matrix-slots {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-form {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    color: black; /* Ensure all text in the form is black */
+}
+
+.task-form h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black; /* Set text color to black */
+    margin-bottom: 20px; /* Space between title and form */
+    text-align: center; /* Center the title */
+}
+
+.task-form label {
+    font-size: 16px;
+    color: black; /* Ensure labels have black text */
+    margin-bottom: 5px; /* Space between label and input field */
+    display: block; /* Make label block-level for proper spacing */
+}
+
+.task-form input[type="text"],
+.task-form input[type="date"],
+.task-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px; /* Space between form fields */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px;
+    color: black; /* Set text color to black */
+}
+
+.task-form textarea {
+    resize: vertical;
+    min-height: 100px; /* Minimum height for text area */
+}
+
+.task-form button {
+    background-color: #00796b; /* Teal background for the button */
+    color: white; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.task-form button:hover {
+    background-color: #004d40; /* Darker teal on hover */
+}
+
+/* Space out the elements in the form properly */
+.task-form .form-row {
+    margin-bottom: 15px;
+}
+
+.task-list {
+    margin-top: 20px;
+}
+
+/* DRAGGABLE TASKS */
+.draggable-task {
+    background-color: #ffffff; /* White background for tasks */
+    border: 1px solid #00796b; /* Teal border to match the blue-green theme */
+    cursor: move;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+}
+
+.task-header {
+    display: grid;
+    grid-template-columns: 74% 13% 13%;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #ffffff; /* White background */
+}
+
+.task-header .task-title {
+    margin: 0px;
+    background-color: #00796b; /* Teal background for task title */
+    color: #ffffff; /* White text on teal background */
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px; /* Rounded corners */
+}
+
+.task-header .task-difficulty,
+.task-header .task-impact {
+    margin: 0px;
+    background-color: #b3e5fc; /* Light blue background */
+    color: black; /* Black text for readability */
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Description section */
+.task-description {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.task-description p { /* task contents */
+    background-color: #ffffff; /* White background for task contents */
+    color: black; /* Black text for readability */
+    margin: 0px;
+    padding: 5px;
+    border-radius: 4px; /* Soft rounded corners */
+}
+
+.hidden { /* hide contents */
+    display: none;
+}
+
+.draggable-task.task-dragging {
+    opacity: 0.5;
+}
+
+.calendar-format {
+    height: 60px; /* same as calendar slot height */
+}
+
+.task-list-format {
+    border-radius: 7px;
+    height: 90px;
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.close-button {
+    border-radius: 50%;
+    background-color: #00796b; /* Teal background */
+    color: white; /* White icon */
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: #004d40; /* Darker teal on hover */
+}
+
+/* ADD TASK BUTTON */
+.add-task-button {
+    font-family: 'Times New Roman', Times, serif; /* Apply Times New Roman font */
+    background-color: #8EC9FF; /* Soft light blue background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.add-task-button:hover {
+    background-color: #006bb3; /* Darker blue on hover */
+}
+
+
+/* MATRIX */
+.matrix {
+    background-color: #ffffff; /* White background for the entire matrix */
+    width: 300px;
+    height: 300px;
+    margin-right: 320px; /* Prevents overlap with sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color:black;
+    border-radius: 8px; /* Rounded corners for smoother appearance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a refined look */
+}
+
+.matrix-slots {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; /* White background for matrix slots */
+}
+
+.matrix-label p {
+    background-color: #ffffff; /* White background for matrix labels */
+    color: black; /* Black text for labels */
+    height: 17px;
+    margin: 0;
+    padding-left: 5px; /* Small padding for spacing */
+    text-align: left; /* Aligning text to the left for a cleaner look */
+}
+
+.axis-label-Y {
+    background-color: #ffffff; /* White background for Y axis labels */
+    width: 20px;
+    height: 35px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: end;
+    margin-left: 17px;
+    color: black; /* Black text for readability */
+}
+
+.axis-label-X {
+    background-color: #ffffff; /* White background for X axis labels */
+    width: 35px;
+    height: 20px;
+    color: black; /* Black text for readability */
+}
+
+.corner {
+    width: 20px;
+    height: 20px;
+    margin-left: 17px;
+    margin-bottom: 17px;
+    background-color: #ffffff; /* White background for corner */
+}
+
+.matrix-slots p {
+    margin: 0px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff; /* White background for rows */
+}
+
+.matrix-slots-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff; /* White background for the slot container */
+    margin-top: 15px;
+    height: 20px;
+    width: 35px;
+    border: 1px solid #ddd; /* Light border for separation */
+}
+
+
+
+/* Mini Calendar Popup Styles */
+.mini-calendar-popup {
+    display: none; /* Hidden initially */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #007BFF; /* Blue border for the popup */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px; /* Rounded corners for a softer look */
+}
+
+/* Header styles with a blue background */
+.mini-calendar-popup .calendar-header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #007BFF; /* Blue background for header */
+    color: white; /* White text for the header */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.mini-calendar-popup .close-button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: white; /* White color for the close button text */
+    cursor: pointer;
+}
+
+/* Style for the mini calendar content */
+#calendar-content {
+    margin-top: 10px;
+    text-align: center;
+    color: #333; /* Dark text for the calendar content */
+}
+
+/* Weekday and date styles */
+.mini-calendar-popup .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 10px;
+}
+
+.mini-calendar-popup .calendar-day {
+    padding: 10px;
+    background-color: #f0f0f0; /* Light gray background for dates */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mini-calendar-popup .calendar-day:hover {
+    background-color: #007BFF; /* Blue on hover */
+    color: white; /* White text on hover */
+}
+
+/* Current day highlight */
+.mini-calendar-popup .current-day {
+    background-color: #007BFF; /* Blue background for current day */
+    color: white; /* White text for current day */
+    font-weight: bold;
+}

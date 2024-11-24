@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+}
+
+
+.matrix {
+    height: auto;
+}
+
+.matrix-slots {
+    width: 1000px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.axis-label-Y {
+    width: 100px;
+    height: 200px;
+}
+
+.corner {
+    width: 100px;
+    height: 100px;
+}
+
+.axis-label-X {
+    width: 200px;
+    height: 100px;
+    margin-left: 10px;
+    background-color: red;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+}
+
+.matrix-slots-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #333;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.draggable-node {
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid black;
+    cursor: move;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.draggable-node.dragging {
+    opacity: .5;
+}
+
+.draggable-node.more-points {
+    margin-left: -30px;
+}
+
+
+/* COPIED FROM OTHER DOCS */
+
+.task-item {
+    background-color: white;
+    border: 1px solid black;
+    cursor: move;
+}
+
+.task-header {
+    display: grid;
+    grid-template-columns: 74% 13% 13%;
+
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.task-header .task-title {           
+    margin: 0px;
+    background-color: red;
+    font-weight: bold;
+}
+
+.task-header .task-difficulty {
+    margin: 0px;
+    background-color: yellow;
+}
+
+.task-header .task-impact {
+    margin: 0px;
+    background-color: yellow;
+}
+
+.task-body {
+    display: grid;
+    grid-template-columns: 90% 10%;
+
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.task-body p {   /* contents */
+    background-color: orange;
+    margin: 0px;
+}

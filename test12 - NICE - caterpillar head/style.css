@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: #333;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.draggable-item {
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid black;
+    cursor: move;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.draggable-item.dragging {
+    opacity: .5;
+}
+
+.draggable-item.more-points {
+    margin-left: -30px;
+}

@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+}
+
+.matrix {
+    width: 1000px;
+    height: 1000px;
+}
+
+.matrix-slots {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.axis-label-Y {
+    width: 100px;
+    height: 200px;
+}
+
+.corner {
+    width: 100px;
+    height: 100px;
+}
+
+.axis-label-X {
+    width: 200px;
+    height: 100px;
+    margin-left: 10px;
+    background-color: red;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+}
+
+.matrix-slots-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #333;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.draggable-item {
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid black;
+    cursor: move;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.draggable-item.dragging {
+    opacity: .5;
+}
+
+.draggable-item.more-points {
+    margin-left: -30px;
+}

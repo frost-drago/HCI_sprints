@@ -1,0 +1,98 @@
+/* SIDEBAR */
+
+.sidebar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #245024;
+    overflow-x: hidden;
+    padding-top: 10px;
+}
+
+.sidebar h2 {
+    margin: 0px;
+}
+
+.matrix {
+    background-color: aqua;
+    width: 300px;
+    height: 300px;
+}
+
+.task-list {
+    background-color: rgb(12, 88, 164);
+    min-height: 100px;
+}
+
+
+/* MATRIX */
+
+.matrix {
+    height: auto;
+    background-color: greenyellow;
+}
+
+.matrix-slots {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.matrix-label p {
+    background-color: #333;
+
+    /* so that the matrix can be centered */
+    height: 17px; 
+}
+
+.axis-label-Y {
+    background-color: orange;
+    width: 20px;
+    height: 35px; /* same as slot container */
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: end;
+
+    /* so that the matrix can be centered */
+    margin-left: 17px; 
+}
+
+.axis-label-X {
+    background-color: red;
+    width: 35px; /* same as slot container */
+    height: 20px;
+}
+
+.corner {
+    width: 20px;
+    height: 20px;
+
+    /* so that the matrix can be centered */
+    margin-left: 17px; 
+    margin-bottom: 17px;
+}
+
+.matrix-slots p {
+    margin: 0px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    background-color: #333;
+}
+
+.matrix-slots-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #333;
+
+    /* margin-top (blank space) + height (same as node) = same as width (make a square) */
+    margin-top: 15px;
+    height: 20px; 
+    width: 35px;    
+}

@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+}
+
+.my-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.container {
+    background-color: #333;
+    height: 160px;
+    margin-top: 10px;
+}
+
+.relocatable-item {
+    display: flex;
+    flex-direction: column;
+    
+    background-color: white;
+    border: 1px solid black;
+    cursor: move;
+}
+
+.draggable-title {
+    background-color: antiquewhite;
+    height: 25px;
+}
+
+.relocatable-item {
+    background-color: aqua;
+}
+
+.relocatable-item.dragging {
+    opacity: .5;
+}
+
+.relocatable-item .item-footer {
+    background-color: blueviolet;
+    height: 10px;
+}
+
+.item-trailing {
+    background-color: palevioletred;
+    height: 70px;
+}
+
+
+.blank-padding { 
+    flex: 1 1 auto;
+    /* 
+    makes this element flexible:
+    flex-grow: 1; allows it to grow to fill available space.
+    flex-shrink: 1; allows it to shrink if necessary.
+    flex-basis: auto; sets the initial size to its content, which is minimal in this case. 
+    */
+}

@@ -1,0 +1,36 @@
+/* NODES INSIDE MATRIX */
+
+.draggable-node {
+    background-color: teal;
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: move;
+}
+
+.draggable-node:hover {
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.733);
+}
+
+.draggable-node.dragging {
+    opacity: .5;
+}
+
+.draggable-node.more-points {
+    margin-left: -10px; /* draggable node radius = ((width or height) / 2) */
+}
+
+.draggable-node.red {
+    background-color: red;
+}
+
+.draggable-node.green {
+    background-color: green;
+}
+
+.draggable-node.blue {
+    background-color: blue;
+}

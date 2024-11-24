@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+}
+
+/* MATRIX */
+
+.matrix {
+    height: auto;
+    background-color: greenyellow;
+}
+
+.matrix-slots {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.matrix-label p {
+    background-color: #333;
+
+    /* so that the matrix can be centered */
+    height: 17px; 
+}
+
+.axis-label-Y {
+    background-color: orange;
+    width: 20px;
+    height: 35px; /* same as slot container */
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: end;
+
+    /* so that the matrix can be centered */
+    margin-left: 17px; 
+}
+
+.axis-label-X {
+    background-color: red;
+    width: 35px; /* same as slot container */
+    height: 20px;
+}
+
+.corner {
+    width: 20px;
+    height: 20px;
+
+    /* so that the matrix can be centered */
+    margin-left: 17px; 
+    margin-bottom: 17px;
+}
+
+.matrix-slots p {
+    margin: 0px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    background-color: #333;
+}
+
+.matrix-slots-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #333;
+
+    /* margin-top (blank space) + height (same as node) = same as width (make a square) */
+    margin-top: 15px;
+    height: 20px; 
+    width: 35px; 
+    
+}
+
+/* NODES INSIDE MATRIX */
+
+.draggable-node {
+    background-color: teal;
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: move;
+}
+
+.draggable-node:hover {
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.733);
+}
+
+.draggable-node.dragging {
+    opacity: .5;
+}
+
+.draggable-node.more-points {
+    margin-left: -10px; /* draggable node radius = ((width or height) / 2) */
+}
+
+.draggable-node.red {
+    background-color: red;
+}
+
+.draggable-node.green {
+    background-color: green;
+}
+
+.draggable-node.blue {
+    background-color: blue;
+}
+
+/* COPIED FROM OTHER DOCS */
+
+.task-item {
+    background-color: white;
+    border: 1px solid black;
+    cursor: move;
+}
+
+.task-header {
+    display: grid;
+    grid-template-columns: 74% 13% 13%;
+
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.task-header .task-title {           
+    margin: 0px;
+    background-color: red;
+    font-weight: bold;
+}
+
+.task-header .task-difficulty {
+    margin: 0px;
+    background-color: yellow;
+}
+
+.task-header .task-impact {
+    margin: 0px;
+    background-color: yellow;
+}
+
+.task-body {
+    display: grid;
+    grid-template-columns: 90% 10%;
+
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.task-body p {   /* contents */
+    background-color: orange;
+    margin: 0px;
+}

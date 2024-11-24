@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="matrix">
+        <div class="matrix-slots">
+            <div class="row">
+                <div class="axis-label-Y">
+                    <p>Difficulty</p>
+                    <p>4</p>
+                </div>
+                <div class="container">
+                    <div id="item_1" class="draggable-item" draggable="true"><p>1</p></div>
+                    <div id="item_1" class="draggable-item" draggable="true"><p>2</p></div>
+                </div>
+                <div class="container">
+                    <div id="item_1" class="draggable-item" draggable="true"><p>3</p></div>
+                    <div id="item_1" class="draggable-item" draggable="true"><p>4</p></div>
+                    <div id="item_1" class="draggable-item" draggable="true"><p>5</p></div>
+                </div>
+                <div class="container"></div>
+                <div class="container"></div>
+            </div>
+            <div class="row">
+                <div class="axis-label-Y"><p>3</p></div>
+                <div class="container"></div>
+                <div class="container"></div>
+                <div class="container"></div>
+                <div class="container"></div>
+            </div>
+            <div class="row">
+                <div class="axis-label-Y"><p>2</p></div>
+                <div class="container"></div>
+                <div class="container"></div>
+                <div class="container"></div>
+                <div class="container"></div>
+            </div>
+            <div class="row">
+                <div class="axis-label-Y"><p>1</p></div>
+                <div class="container"></div>
+                <div class="container"></div>
+                <div class="container"></div>
+                <div class="container"></div>
+            </div>
+            <div class="row">
+                <div class="corner"><p>0</p></div>
+                <div class="axis-label-X"><p>1</p></div>
+                <div class="axis-label-X"><p>2</p></div>
+                <div class="axis-label-X"><p>3</p></div>
+                <div class="axis-label-X">
+                    <p>4</p>
+                    <p>Impact</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task management container -->
+    <div id="task-management-container">
+        <!-- Add task -->
+        <div id="task-form">
+            <label for="task-name">Task Name:</label>
+            <input type="text" id="task-name">
+
+            <label for="difficulty">Difficulty (1-10):</label>
+            <input type="number" id="difficulty" min="1" max="10">
+
+            <label for="impact">Impact (1-10):</label>
+            <input type="number" id="impact" min="1" max="10">
+
+            <label for="task-description">Description:</label>
+            <textarea id="task-description"></textarea>
+
+            <!-- Add radio buttons for color selection -->
+            <label>Color:</label>
+            <input type="radio" name="color" value="blue" id="color-blue" checked>
+            <label for="color-blue">Blue (One-off tasks)</label>
+
+            <input type="radio" name="color" value="green" id="color-green">
+            <label for="color-green">Green (Side-quests)</label>
+
+            <input type="radio" name="color" value="red" id="color-red">
+            <label for="color-red">Red (Tasks with penalty)</label>
+
+            <button onclick="add_task()">Add Task</button>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

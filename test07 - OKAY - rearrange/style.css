@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+}
+
+
+/* CALENDAR */
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(40px, 140px));
+    border: 1px solid black;
+}
+
+.time-labels {
+    background-color: blue;
+}
+
+.day {
+    border: 2px solid red;
+}
+
+.day-title {
+    height: 30px;
+    padding: auto;
+    text-align: center;
+}
+
+.container {
+    background-color: #333;
+    margin-top: 1px;
+    height: 60px;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #245024;
+    overflow-x: hidden;
+    padding-top: 10px;
+}
+
+.matrix {
+    background-color: aqua;
+    width: 300px;
+    height: 300px;
+}
+
+.task-list {
+    background-color: rgb(12, 88, 164);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* DRAGGABLE ITEMS */
+
+.draggable-item {
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid black;
+    cursor: move;
+}
+
+.draggable-item.dragging {
+    opacity: .5;
+}
