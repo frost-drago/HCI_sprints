@@ -39,6 +39,9 @@ initialize_node_drag_behavior()
 initialize_node_slots() 
 refresh_node_order()
 
+// header
+initialize_month_week_toggle_behavior()
+
 /*=======================================================================
 INITIALIZER FUNCTIONS
 =======================================================================*/
@@ -286,6 +289,32 @@ function initialize_close_button_behavior() {
     })
 }
 
+function initialize_month_week_toggle_behavior() {
+    const toggle_week = document.querySelector('.toggle-week')
+    const toggle_month = document.querySelector('.toggle-month')
+    const toggle_button = document.querySelector('.calendar-view-toggle-button')
+
+    toggle_week.addEventListener('click', () => {
+        toggle_button.classList.add('moved-right')
+
+        /* change text color */
+        toggle_month.classList.remove('white-text')
+        toggle_month.classList.add('black-text')
+        toggle_week.classList.add('white-text')
+        toggle_week.classList.remove('black-text')
+    })
+
+    toggle_month.addEventListener('click', () => {
+        toggle_button.classList.remove('moved-right')
+
+        /* change text color */
+        toggle_month.classList.add('white-text')
+        toggle_month.classList.remove('black-text')
+        toggle_week.classList.remove('white-text')
+        toggle_week.classList.add('black-text')
+    })
+}
+
 /*=======================================================================
 BEHAVIORAL FUNCTIONS
 =======================================================================*/
@@ -499,7 +528,7 @@ function new_tasklist_item(input_task_name, input_task_difficulty, input_task_im
 
 function new_node(input_task_name, input_color, input_task_difficulty, input_task_impact) {
     /*=======================================================================
-    Function to make a draggable node item
+    Function to make a draggable node item.
     input_task_difficulty   = X position
     input_task_impact       = Y position
     =======================================================================*/
@@ -518,4 +547,157 @@ function new_node(input_task_name, input_color, input_task_difficulty, input_tas
     class_locator_impact = '.Y' + input_task_impact.toString()
     const selected_container = document.querySelectorAll(class_locator_difficulty + class_locator_impact);
     selected_container[0].appendChild(new_node)
+}
+
+// ???
+// ???
+// ???
+
+const month_names = [
+    "January", "February", "March", "April", "May", "June", 
+    "July", "August", "September", "October", "November", "December"
+]
+const month_names_shorthand = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+]
+
+// Initialize the current date and week
+let current_date = new Date() // current date for global var
+let today_date = new Date()
+
+let current_week = get_week_range(current_date) // Get the start and end dates of the current week
+
+initialize_header_week_month() //call at least once
+
+function get_week_range(date) {
+    /*=======================================================================
+    Function to get the start and end dates for the week.
+    =======================================================================*/
+    const start_date = new Date(date)
+    const end_date = new Date(date)
+
+    // Calculate the start of the week (Monday)
+    const day_num = start_date.getDay()
+    start_date.setDate(start_date.getDate() - day_num + 1)
+
+    // Calculate the end of the week (Sunday)
+    end_date.setDate(start_date.getDate() + 6)
+    
+    return {start: start_date, end: end_date}
+}
+
+function initialize_header_week_month() {
+    /*=======================================================================
+    Function to initialize or reinitialize header week and month display.
+    =======================================================================*/
+
+    const month_name = month_names[current_date.getMonth()]
+
+    document.getElementById("month-name").textContent = month_name
+    document.getElementById("week-start-date").textContent = month_names_shorthand[current_week.start.getMonth()] + " " + current_week.start.getDate() + get_date_suffix(current_week.start.getDate())
+    document.getElementById("week-end-date").textContent = month_names_shorthand[current_week.end.getMonth()] + " " + current_week.end.getDate() + get_date_suffix(current_week.end.getDate())
+
+    // Update header-week-labels
+    let a_date = new Date(current_week.start)
+
+    for (let i = 1; i <= 7; i++) {
+        const header_label_date = document.getElementById(`header-label-date-${i}`)
+        header_label_date.textContent = a_date.getDate()
+
+        // Color current date
+        if (are_dates_equal(a_date, today_date)) {
+            header_label_date.parentElement.classList.add('today')
+        }
+        else {
+            try {
+                header_label_date.parentElement.classList.remove('today')
+            } catch {} // the class doesn't exist
+        }
+
+        // Next iteration
+        a_date.setDate(a_date.getDate() + 1)
+    }
+
+}
+
+function are_dates_equal(date_1, date_2) {
+    /*=======================================================================
+    Helper function to compare whether two dates are equal without factoring
+    time.
+    =======================================================================*/
+    date_1.setHours(0, 0, 0, 0)
+    date_2.setHours(0, 0, 0, 0)
+    return date_1.getTime() === date_2.getTime()
+}
+
+function get_date_suffix(date) {
+    /*=======================================================================
+    Helper function to add suffixes to the day of the month 
+    (e.g., 1st, 2nd, 3rd).
+    =======================================================================*/
+    if (date > 3 && date < 21) return "th"
+    switch (date % 10) {
+        case 1: return "st"
+        case 2: return "nd"
+        case 3: return "rd"
+        default: return "th"
+    }
+}
+
+function change_week(direction) {
+    /*=======================================================================
+    Function to change the current selected week (Prev or Next)
+    direction : [integer] 1 is next week, -1 is last week, 2 is next 2 weeks,
+                ... and so on.
+    =======================================================================*/
+    current_date.setDate(current_date.getDate() + direction * 7)
+    current_week = get_week_range(current_date)
+    initialize_header_week_month()
+}
+
+// Toggle mini calendar visibility
+function toggleMiniCalendar() {
+    const miniCalendar = document.getElementById("mini-calendar");
+    if (miniCalendar.style.display === "none" || miniCalendar.style.display === "") {
+        miniCalendar.style.display = "block";
+        generateMiniCalendar();
+    } else {
+        miniCalendar.style.display = "none";
+    }
+}
+
+// Function to generate the mini calendar for the current month
+function generateMiniCalendar() {
+    const calendarContent = document.getElementById("calendar-content");
+    const currentMonth = current_date.getMonth();
+    const currentYear = current_date.getFullYear();
+    const firstDay = new Date(currentYear, currentMonth, 1);
+    const lastDay = new Date(currentYear, currentMonth + 1, 0);
+    const daysInMonth = lastDay.getDate();
+    const firstDayOfWeek = firstDay.getDay();
+
+    const daysArray = [];
+    for (let i = 0; i < firstDayOfWeek; i++) daysArray.push("");
+    for (let day = 1; day <= daysInMonth; day++) daysArray.push(day);
+
+    let calendarHTML = '<div class="calendar-days">';
+    const dayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    dayLabels.forEach(day => {
+        calendarHTML += `<div class="calendar-day">${day}</div>`;
+    });
+
+    daysArray.forEach((day, index) => {
+        if (day === "") {
+            calendarHTML += `<div class="calendar-day"></div>`;
+        } else {
+            const isToday = day === current_date.getDate() && currentMonth === current_date.getMonth() && currentYear === current_date.getFullYear();
+            calendarHTML += `<div class="calendar-day${isToday ? " current-day" : ""}">${day}</div>`;
+        }
+        if ((index + 1) % 7 === 0) {
+            calendarHTML += '</div><div class="calendar-days">';
+        }
+    });
+
+    calendarHTML += '</div>';
+    calendarContent.innerHTML = calendarHTML;
 }

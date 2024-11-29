@@ -1,0 +1,16 @@
+White   #FFFFFF
+Gray 5  #F6F6F6
+Gray 10 #FFFFFF
+Gray 20 #E2E2E2
+
+Gray 60 #545454
+
+Blue 5  #EAFDFF
+Blue 10 #CAD9FF
+Blue 30 #5AB8FF
+Blue 40 #4272EF
+Blue 50 #1F4CC0
+
+border-radius : 1vh
+
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

@@ -1,0 +1,211 @@
+/*= <ABOUT!> ============================================================
+This document is for styles related to task elements.
+It is split into 3 categories:
+- universal     : (applies for all task elements)
+- children      : (the sub-divs and its children)
+- behavioral    : (classes that add and go when certain event listeners 
+                   ... are triggered)
+=======================================================================*/
+
+/*=======================================================================
+UNIVERSAL
+=======================================================================*/
+
+.task {
+    background-color: #4caf50;
+    color: white;
+    left: 0;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 1vh;
+
+    /* necessary for not having the box bleed outside */
+    box-sizing: border-box;
+    padding: 10px;
+    
+    /* necessary for absolute-positioning of the child: resize-handle */
+    position: relative; 
+
+    /* necessary for adjustable-sizing of the child: drag-and-drop-handle */ 
+    display: flex; 
+    flex-direction: column;
+
+    /* necessary for animation and resizing smoothing */
+    -webkit-transition: .6s;
+    transition: .2s;
+}
+
+/*=======================================================================
+CHILDREN
+.task
+┣╸.drag-and-drop-handle [YES]
+┃   ┣╸.task-header [YES]
+┃   ┃   ┣╸.task-title [YES]
+┃   ┃   ┗╸.close-button [YES]
+┃   ┣╸.task-info [YES]
+┃   ┃   ┣╸.task-due-date (?)
+┃   ┃   ┣╸.task-difficulty-capsule
+┃   ┃   ┣╸.task-impact-capsule
+┃   ┃   ┗╸.task-calculated-priority-capsule
+┃   ┗╸.task-body 
+┃   ┃   ┣╸.task-description
+┃   ┃   ┗╸.task-sticker (?)
+┗╸.resize-handle [YES]
+=======================================================================*/
+
+.drag-and-drop-handle {
+/* Handle for moving the task to another div. Height follows the size of the div.*/
+
+    /* necessary for automatically taking up the remaining space */ 
+    flex: 1; 
+}
+
+.task-header {
+    margin: 0px;
+
+    /* necessary for absolute-positioning of the child: close-button */
+    position: relative;
+}
+
+.task-header .task-title {
+    margin: 0px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.close-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    /* necessary for putting the button at the top right corner of the task */ 
+    position: absolute;
+    top: 0px;
+    right: 0px;;
+}
+
+.task-info {
+    display: flex;
+}
+
+.task-difficulty-capsule {
+    border-radius: 1vh;
+    background-color: #00ffcc;
+    margin-left: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.task-difficulty-capsule p {
+    margin: 0px;
+    color: black;
+}
+
+.task-impact-capsule {
+    border-radius: 1vh;
+    background-color: #d82626;
+    margin-left: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.task-impact-capsule p {
+    margin: 0px;
+    color: black;
+}
+
+.task-calculated-priority {
+    color: blue
+}
+
+.resize-handle {
+/* Resize handle for bottom of the task */
+    width: 100%;
+    height: 10px;
+    cursor: ns-resize;
+
+    /* necessary for putting the resize handle at the bottom of the task */ 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    /* necessary for animation */
+    transition: .2s;
+}
+
+/*=======================================================================
+BEHAVIORAL
+=======================================================================*/
+
+.task.task-dragging {
+    opacity: 0.5;
+}
+
+.task.calendar-format {
+    /* initial height, same as calendar slot height */
+    height: 60px; 
+}
+
+.task.task-list-format {
+    border-radius: 1vh;
+    height: 90px;
+    margin-bottom: 1vh;
+}
+
+.task.task-list-format.red:hover {
+    box-sizing: content-box;
+    border: 4px solid #F05A95;
+}
+
+.task.task-list-format.green:hover {
+    box-sizing: content-box;
+    border: 4px solid #32BDAD;
+}
+
+.task.task-list-format.blue:hover {
+    box-sizing: content-box;
+    border: 4px solid #4272EF;
+}
+
+.hidden {
+    display: none;
+}
+
+.task.red {
+    background-color: #ebb8cd;
+}
+
+.task.green {
+    background-color: #7bc6bd;
+}
+
+.task.blue {
+    background-color: #CAD9FF;
+}
+
+.task:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.task.red .resize-handle:hover {
+    background-color: #F05A95;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+.task.green .resize-handle:hover {
+    background-color: #32BDAD;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+.task.blue .resize-handle:hover {
+    background-color: #4272EF;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+/* ??? */
+.gradient-container {
+    background: linear-gradient(to right, green, yellow, red);
+}

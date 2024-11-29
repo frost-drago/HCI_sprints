@@ -1,0 +1,239 @@
+/*=======================================================================
+CHILDREN
+.header
+┣╸.header-toplane [YES]
+┃   ┗╸.calendar-view-toggle [YES]
+┣╸.header-midlane [YES]
+┗╸.header-week [YES]
+    ┣╸.header-label-time
+    ┗╸.header-label
+        ┣╸.header-label-day
+        ┗╸.header-label-date
+=======================================================================*/
+
+.header {
+
+    background-color: #007acc;
+    color: white;
+    width: 100%;
+    height: 160px;
+
+    /* necessary for positioning the child elements */
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    /* necessary for positioning in respect to the screen */
+    position: fixed;
+    top: 0;
+    z-index: 3; 
+    box-sizing: border-box;
+}
+
+.header-toplane {
+    background-color: #333;
+
+    /* necessary for positioning in parent container: header */
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+}
+
+.calendar-view-toggle {
+/* the toggle button */
+    width: 140px;
+    height: 30px;
+    margin: auto;
+
+    border: 2px solid #007acc;
+    border-radius: 50vh;
+
+    /* necessary for making positioning child element: calendar-view-toggle-button */
+    position: relative;
+
+    /* necessary for making positioning child element: calendar-view-toggle-label */
+    display: flex;
+}
+
+.calendar-view-toggle .calendar-view-toggle-label {
+    width: 50%;
+    height: 100%;
+    border-radius: 50vh;
+
+    /* want it to be above the button */
+    z-index: 1;
+
+    /* for positioning the text in the middle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* for text color change */
+    transition: .4s;
+}
+
+.calendar-view-toggle .calendar-view-toggle-button {
+    width: 50%;
+    height: 100%;
+    background-color: #007acc;
+    border-radius: 50vh;
+
+    /* necessary for making positioning it within the toggle capsule */
+    position: absolute;
+    z-index: 0;
+
+    /* necessary for animation */
+    -webkit-transition: .6s;
+    transition: .6s;
+}
+
+.moved-right {
+/* move right by 100% of it */
+    transform: translateX(100%);
+}
+
+.white-text {
+    color: white;
+}
+
+.black-text {
+    color: black;
+}
+
+.header-midlane {
+    /* necessary for positioning in parent container: header */
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+
+    /* necessary for positioning children */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/*!!!!!!!!!!!!!!!!!*/
+.header-focus {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    column-gap: 1cap;
+    grid-template-rows: 1fr 1fr;
+}
+
+.month-name {
+    margin: 0px;
+
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+}
+
+.week-of {
+    display: flex;
+
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+}
+
+.week-of p {
+    margin: 0px;
+    margin-right: 10px;
+}
+
+.mini-calendar-button {
+    grid-column: 2 / 2;
+    grid-row: 1 / 3;
+}
+
+.header-week {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    /* necessary for positioning in parent container: header */
+    grid-column: 1 / 1;
+    grid-row: 3 / 3;
+}
+
+.header-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* for color animation */
+    transition: .6s;
+}
+
+.header-label p {
+    margin: 0px;
+}
+
+.header-label.today {
+    background-color: red;
+}
+
+/* Mini Calendar Popup Styles */
+.mini-calendar-popup {
+    display: none; /* Hidden initially */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #007BFF; /* Blue border for the popup */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px; /* Rounded corners for a softer look */
+}
+
+/* Header styles with a blue background */
+.mini-calendar-popup .calendar-header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #007BFF; /* Blue background for header */
+    color: white; /* White text for the header */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.mini-calendar-popup .close-button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: white; /* White color for the close button text */
+    cursor: pointer;
+}
+
+/* Style for the mini calendar content */
+#calendar-content {
+    margin-top: 10px;
+    text-align: center;
+    color: #333; /* Dark text for the calendar content */
+}
+
+/* Weekday and date styles */
+.mini-calendar-popup .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 10px;
+}
+
+.mini-calendar-popup .calendar-day {
+    padding: 10px;
+    background-color: #f0f0f0; /* Light gray background for dates */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mini-calendar-popup .calendar-day:hover {
+    background-color: #007BFF; /* Blue on hover */
+    color: white; /* White text on hover */
+}
+
+/* Current day highlight */
+.mini-calendar-popup .current-day {
+    background-color: #007BFF; /* Blue background for current day */
+    color: white; /* White text for current day */
+    font-weight: bold;
+}

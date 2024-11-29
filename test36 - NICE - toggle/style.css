@@ -1,0 +1,56 @@
+.calendar-view-toggle {
+/* the toggle button */
+    width: 140px;
+    height: 30px;
+
+    border: 2px solid #007acc;
+    border-radius: 50vh;
+
+    /* necessary for making positioning child element: calendar-view-toggle-button */
+    position: relative;
+
+    /* necessary for making positioning child element: calendar-view-toggle-label */
+    display: flex;
+}
+
+.calendar-view-toggle .calendar-view-toggle-label {
+    width: 50%;
+    height: 100%;
+    border-radius: 50vh;
+
+    /* want it to be above the button */
+    z-index: 1;
+
+    /* for positioning the text in the middle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-view-toggle .calendar-view-toggle-button {
+    width: 50%;
+    height: 100%;
+    background-color: #007acc;
+    border-radius: 50vh;
+
+    /* necessary for making positioning it within the toggle capsule */
+    position: absolute;
+    z-index: 0;
+
+    /* necessary for animation */
+    -webkit-transition: .6s;
+    transition: .6s;
+}
+
+.moved-right {
+/* move right by 100% of it */
+    transform: translateX(100%);
+}
+
+.white-text {
+    color: white;
+}
+
+.black-text {
+    color: black;
+}
