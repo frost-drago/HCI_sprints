@@ -1,6 +1,8 @@
 # HCI project
 
-test33 and test34 are latest different versions. Please be aware these are mini sprints, many of them are still far from the end product.
+test38 is latest version. Please be aware these are mini sprints, many of them are still far from the end product. 
+
+I'm sorry I overshot.
 
 ## Group members
 
