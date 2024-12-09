@@ -72,7 +72,7 @@ CHILDREN
 .task-header .task-title {
     margin: 0px;
     font-weight: bold;
-    font-size: large;
+    font-size: larger;
 }
 
 .close-button {
@@ -171,15 +171,15 @@ BEHAVIORAL
     display: none;
 }
 
-.task.red {
+.task.color-red {
     background-color: #ebb8cd;
 }
 
-.task.green {
+.task.color-green {
     background-color: #7bc6bd;
 }
 
-.task.blue {
+.task.color-blue {
     background-color: #CAD9FF;
 }
 
@@ -187,19 +187,19 @@ BEHAVIORAL
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.task.red .resize-handle:hover {
+.task.color-red .resize-handle:hover {
     background-color: #F05A95;
     border-bottom-left-radius: 1vh;
     border-bottom-right-radius: 1vh;
 }
 
-.task.green .resize-handle:hover {
+.task.color-green .resize-handle:hover {
     background-color: #32BDAD;
     border-bottom-left-radius: 1vh;
     border-bottom-right-radius: 1vh;
 }
 
-.task.blue .resize-handle:hover {
+.task.color-blue .resize-handle:hover {
     background-color: #4272EF;
     border-bottom-left-radius: 1vh;
     border-bottom-right-radius: 1vh;

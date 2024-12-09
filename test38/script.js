@@ -37,6 +37,7 @@ let next_identifier = 1
 
 let current_date = new Date() // current date for global var (for switching between weeks)
 let current_week = get_week_range(current_date) // Get the start and end dates of the current week (no)
+let current_week_detailed = get_week_range_per_day(current_date)
 
 let today_date = new Date() // actual now
 
@@ -142,7 +143,6 @@ function initialize_task_behavior() {
         })
         task_drag_and_drop_handle.addEventListener('dragend', () => {
             task.classList.remove('task-dragging')
-
         })
     })
 }
@@ -294,18 +294,6 @@ function initialize_node_slots() {
     })
 }
 
-function unbold_matrix_labels() {
-    /*=======================================================================
-    Function to reset matrix labels, reinitializing it to default style.
-    =======================================================================*/
-    const matrix_labels = document.querySelectorAll('.axis-label')
-    matrix_labels.forEach(a_label => {
-        try {
-            a_label.children[0].classList.remove('label-bold')
-        } catch {}
-    })
-}
-
 function refresh_node_order() {
     /*=======================================================================
     Function to initialize or reinitialize node order, so that the first
@@ -319,6 +307,18 @@ function refresh_node_order() {
             }
         }
         catch { } // everything is ordered
+    })
+}
+
+function unbold_matrix_labels() {
+    /*=======================================================================
+    Function to reset matrix labels, resetting it to default style.
+    =======================================================================*/
+    const matrix_labels = document.querySelectorAll('.axis-label')
+    matrix_labels.forEach(a_label => {
+        try {
+            a_label.children[0].classList.remove('label-bold')
+        } catch {}
     })
 }
 
@@ -349,6 +349,9 @@ function initialize_close_button_behavior() {
 }
 
 function initialize_month_week_toggle_behavior() {
+    /*=======================================================================
+    Function to initialize change views between month and week (top)
+    =======================================================================*/
     const toggle_week = document.querySelector('.toggle-week')
     const toggle_month = document.querySelector('.toggle-month')
     const toggle_button = document.querySelector('.calendar-view-toggle-button')
@@ -572,6 +575,9 @@ function add_task() {
     initialize_close_button_behavior() 
 }
 
+
+
+
 /*=======================================================================
 COMMON FUNCTIONS
 =======================================================================*/
@@ -665,6 +671,25 @@ function get_week_range(date) {
     return {start: start_date, end: end_date}
 }
 
+function get_week_range_per_day(date) {
+    /*=======================================================================
+    Function to get an array of 7 days for the week.
+    =======================================================================*/
+
+    const start_date = new Date(date);
+    const day_num = start_date.getDay();
+    start_date.setDate(start_date.getDate() - day_num + 1)
+
+    const week_days = [];
+    for (let i = 0; i < 7; i++) {
+        const day = new Date(start_date)
+        day.setDate(start_date.getDate() + i)
+        week_days.push(day)
+    }
+
+    return week_days
+}
+
 function change_week(direction) {
     /*=======================================================================
     Function to change the current selected week (Prev or Next)
@@ -673,9 +698,26 @@ function change_week(direction) {
     =======================================================================*/
     current_date.setDate(current_date.getDate() + direction * 7)
     current_week = get_week_range(current_date)
+    current_week_detailed = get_week_range(current_date)
     initialize_header_week_month()
 }
 
+function get_day_date_string(a_date) {
+    /*=======================================================================
+    Function to get date in "dd-mm-yyyy" string format.
+    =======================================================================*/
+
+    const day_name = a_date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
+    const date = a_date.toLocaleDateString('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-')
+    //console.log(day_name) // Output: "saturday"
+    //console.log(date) // Output: "11-30-2024"
+
+    const [month, day, year] = a_date.toLocaleDateString('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' }).split('/');
+    const formatted_date = `${day}-${month}-${year}`;
+
+    return formatted_date
+    
+}
 
 /*=======================================================================
 ELEMENT CONSTRUCTORS
@@ -695,6 +737,7 @@ function new_weekly_calendar(max_slots) {
         const day_div = document.createElement('div')
         day_div.classList.add('day')
         day_div.classList.add('day-' + day_names[day])
+        day_div.classList.add('date-' + get_day_date_string(current_week_detailed[day]))
 
         let slot_start_time_in_mins = 0
 
@@ -786,7 +829,7 @@ function new_tasklist_item(input_task_name, input_task_difficulty, input_task_im
     const new_task = document.createElement('div')
     new_task.classList.add('task')
     new_task.classList.add('task-list-format')
-    new_task.classList.add(input_color)
+    new_task.classList.add('color-' + input_color)
     new_task.classList.add(identifier_prefix + next_identifier.toString()) // global var
     new_task.appendChild(new_task_dragdrop_handle)
     new_task.appendChild(new_task_footer)
@@ -880,54 +923,73 @@ function generateMiniCalendar() {
 
 
 function save_all_tasks () {
-    // load JSON
-    // load last ID
-    let this_week_tasks = document.querySelectorAll('.task')
-    console.log(this_week_tasks)
-    this_week_tasks.forEach(a_task => {
-        // get date of task
+    let this_week = document.querySelectorAll('.day')
+    let data  = {} // load data
+    this_week.forEach(a_day => {
+        let this_week_tasks = a_day.querySelectorAll('.task')
+        let this_week_tasks_converted = []
 
-        // get ID of task
-        const a_task_identifier = find_class_with_prefix(a_task, 'ID')
-        // get start time
-        const a_task_start_time = get_inner_element_by_class(a_task, "task-start-time").textContent
-        // get duration
-        const a_task_duration = get_inner_element_by_class(a_task, "task-duration").textContent
+        // if undefined then task list
+        this_week_tasks.forEach(a_task => {
+            // get ID of task
+            const a_task_identifier = find_class_with_prefix(a_task, 'ID')
+            // get start time
+            const a_task_start_time = get_inner_element_by_class(a_task, "task-start-time").textContent
+            // get duration
+            const a_task_duration = get_inner_element_by_class(a_task, "task-duration").textContent
 
-        // get task name
-        const a_task_title = get_inner_element_by_class(a_task, "task-title").textContent
-        // get difficulty
-        const a_task_difficulty = get_inner_element_by_class(a_task, "task-difficulty").textContent
-        // get impact
-        const a_task_impact = get_inner_element_by_class(a_task, "task-impact").textContent
-        // get due date
-        // get description
-        const a_task_description = get_inner_element_by_class(a_task, "task-description").textContent
+            // get task name
+            const a_task_title = get_inner_element_by_class(a_task, "task-title").textContent
+            // get difficulty
+            const a_task_difficulty = get_inner_element_by_class(a_task, "task-difficulty").textContent
+            // get impact
+            const a_task_impact = get_inner_element_by_class(a_task, "task-impact").textContent
+            // get due date
+            // get description
+            const a_task_description = get_inner_element_by_class(a_task, "task-description").textContent
 
-        console.log(a_task_identifier, a_task_start_time, a_task_duration, a_task_title, a_task_impact, a_task_difficulty, a_task_description)
+            // get color
+            const a_task_color = find_class_with_prefix(a_task, 'color-')
+
+            console.log(a_task_identifier, a_task_start_time, a_task_duration, a_task_title, a_task_impact, a_task_difficulty, a_task_description, a_task_color)
+            const task_object = {
+                identifier: a_task_identifier,
+                startTime: a_task_start_time,
+                duration: a_task_duration,
+                title: a_task_title,
+                impact: a_task_impact,
+                difficulty: a_task_difficulty,
+                description: a_task_description,
+                color: a_task_color
+            }
+
+            this_week_tasks_converted.push(task_object)
+        })
+
+        data[find_class_with_prefix(a_day, 'date-')] = this_week_tasks_converted
     })
-
-    // save current ID
-
-
-    let temp = {'something':1, 'hey':'lol'}
-
-    // Create a list of elements
-    const myList = ["apple", "banana", "cherry", temp];
+    
+    console.log(data)
 
     // Convert the list to a JSON string
-    const jsonString = JSON.stringify(myList);
+    const week_info_json_string = JSON.stringify(data)
 
     // Store the JSON string in local storage
-    localStorage.setItem('myItemList', jsonString);
+    localStorage.setItem('data_week_info', week_info_json_string)
+    localStorage.setItem('data_current_identifier', next_identifier)
 }
 
-function load_all_tasks () {
-    // Retrieve the JSON string from local storage
-    const jsonString = localStorage.getItem('myItemList');
+function load_all_tasks (week_start) {
+    try {
+        // Retrieve the JSON string from local storage
+        const week_info_json_string = localStorage.getItem('data_week_info')
+        next_identifier = localStorage.getItem('data_current_identifier')
 
-    // Parse the JSON string back into a JavaScript array
-    const myList = JSON.parse(jsonString);
+        // Parse the JSON string back into a JavaScript array
+        const week_info = JSON.parse(week_info_json_string)
 
-    console.log(myList); // Output: ["apple", "banana", "cherry"]
+        // Get current week start
+        // eliminate all tasks on calendar
+    } catch {}
+    
 }
