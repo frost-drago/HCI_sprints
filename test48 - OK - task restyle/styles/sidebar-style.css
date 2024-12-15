@@ -1,0 +1,76 @@
+/*= <ABOUT!> ============================================================
+This document is for styles related to sidebar.
+It is split into 3 categories:
+- universal     : (applies for all task elements)
+- children      : (the sub-divs and its children)
+- behavioral    : (classes that add and go when certain event listeners 
+                   ... are triggered)
+=======================================================================*/
+
+
+/*=======================================================================
+UNIVERSAL
+=======================================================================*/
+
+.sidebar {
+    height: 100%;
+    width: 300px;
+    background-color: #F6F6F6;
+    border-left: 3px solid #4272EF;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    /* necessary to align its children */
+    display: flex;
+    flex-direction: column;    
+
+    /* necessary for putting it on the right */
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+}
+
+.sidebar h2 {
+    margin: 0px;
+    margin-left: 1vh;
+    color: #4272EF;
+}
+
+/*=======================================================================
+CHILDREN
+.sidebar
+┣╸.matrix-section
+┃   ┗╸.matrix-slots [OTHER FILE]
+┣╸.add-task-section
+┗╸.task-list-section
+    ┗╸.task-list-container
+        ┗╸.task-list
+=======================================================================*/
+
+.matrix-section {
+    height: auto;
+}
+
+.task-list-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.task-list-container {
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.task-list {
+    background-color: #F6F6F6;
+    min-height: 100px;
+    margin-left: 1vh;
+    max-height: 1000px;
+}
+
+/*=======================================================================
+BEHAVIORAL
+=======================================================================*/

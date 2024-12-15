@@ -27,6 +27,9 @@ Blue 10 #CAD9FF
 Green   #7BC6BD
 Red     #EBB8CD
 
+PRIORITY
+Red-dd  #9c1a4b
+
 BUTTONS
 Green-dd #048a7f
 
