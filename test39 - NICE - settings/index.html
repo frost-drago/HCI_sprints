@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <!--settings button-->
+    <div id="settings-toggle"><img class="fitted-image" src="images/settings.png"></div>
+
+    <!--settings interface-->
+    <div id="settings-page">
+        <h1>Settings</h1>
+        <div>
+            <p>Font size</p>
+            <div class="font-size-display"><p id="small-a">A</p><p id="big-a">A</p></div>
+            <div class="slider-container">
+                <input type="range" min="1" max="7" value="4" class="slider" id="myRange">
+            </div>
+        </div>
+        <div class="side-by-side">
+            <p>Mode</p>
+            <div class="dark-mode-toggle">
+                <div class="dark-mode-toggle-label toggle-month white-text">Light</div>
+                <div class="dark-mode-toggle-label toggle-week black-text">Dark</div>
+                <div class="dark-mode-toggle-button"></div>
+            </div>
+        </div>
+        <div class="side-by-side">
+            <p>Dyslexic</p>
+            <div class="dyslexic-toggle">
+                <div class="dyslexic-toggle-label toggle-month white-text">Off</div>
+                <div class="dyslexic-toggle-label toggle-week black-text">On</div>
+                <div class="dyslexic-toggle-button"></div>
+            </div>
+        </div>
+        <div id="settings-close-button"><img class="fitted-image" src="images/close.png"></div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>

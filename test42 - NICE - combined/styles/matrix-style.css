@@ -1,0 +1,76 @@
+.matrix-slots {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.matrix-label p {
+    background-color: #F6F6F6;
+
+    /* so that the matrix can be centered */
+    height: 17px; 
+}
+
+.label-bold {
+/* For when node is being dragged */
+    font-weight: bold;
+    font-size: large;
+    color: #1F4CC0;
+}
+
+.axis-label {
+    color: #545454;
+}
+
+.axis-label-Y {
+    width: 20px;
+    height: 35px; /* same as slot container */
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: end;
+
+    border-right: 1px solid #4272EF;
+    box-sizing: border-box;
+
+    /* so that the matrix can be centered */
+    margin-left: 17px; 
+}
+
+.axis-label-X {
+    border-top: 1px solid #4272EF;
+    box-sizing: border-box;
+
+    width: 35px; /* same as slot container */
+    height: 20px;
+}
+
+.corner {
+    width: 20px;
+    height: 20px;
+
+    /* so that the matrix can be centered */
+    margin-left: 17px; 
+    margin-bottom: 17px;
+}
+
+.matrix-slots p {
+    margin: 0px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    background-color: #F6F6F6;
+}
+
+.matrix-slots-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #F6F6F6;
+
+    /* margin-top (blank space) + height (same as node) = same as width (make a square) */
+    margin-top: 15px;
+    height: 20px; 
+    width: 35px;    
+}

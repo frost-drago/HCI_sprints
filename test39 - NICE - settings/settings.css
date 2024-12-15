@@ -1,0 +1,235 @@
+
+#settings-toggle {
+    background-color: #4272EF;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 1vh;
+    padding: 2px;
+}
+
+#settings-toggle:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #1F4CC0;
+}
+
+.fitted-image {
+    object-fit: contain;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+#settings-page {
+    position: absolute;
+    top: 25%;
+    left: calc(50% - 250px);
+
+    width: 500px;
+    height: 50%;
+    background-color: #CAD9FF;
+    border-radius: 1vh;
+    border: 4px solid #4272EF;
+
+    transition: opacity 0.4s ease;
+
+    /* For neatly adjusting child items. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#settings-page h1,p {
+    color:#4272EF;
+}
+
+#settings-close-button {
+    background-color: #4272EF;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 1vh;
+    padding: 2px;
+
+    position: inherit;
+    right: 10px;
+    top: 10px;
+}
+
+#settings-close-button:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #1F4CC0;
+}
+
+.font-size-display {
+    width: 300px; /*same as slider container.*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.font-size-display #small-a {
+    font-size: smaller;
+    margin: 0;
+}
+
+.font-size-display #big-a {
+    font-size: larger;
+    margin: 0;
+}
+
+.side-by-side {
+    width: 300px; /*same as slider container.*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.slider-container {
+    width: 300px;
+    margin: 20px auto;
+}
+  
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    outline: none;
+    opacity: 0.7;
+
+    /* doesn't work, fix ? */
+    -webkit-transition: .6s;
+    transition: opacity .2s;
+}
+  
+.slider::-webkit-slider-thumb {
+    /* The draggable circle */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4272EF;
+    cursor: pointer;
+
+}
+  
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+
+.dark-mode-toggle {
+/* the toggle button */
+    width: 140px;
+    height: 22px;
+    margin-top: 10px;
+
+    border: 2px solid #4272EF;
+    border-radius: 50vh;
+
+    /* necessary for making positioning child element: calendar-view-toggle-button */
+    position: relative;
+
+    /* necessary for making positioning child element: calendar-view-toggle-label */
+    display: flex;
+}
+
+.dark-mode-toggle .dark-mode-toggle-label {
+    width: 50%;
+    height: 100%;
+    border-radius: 50vh;
+
+    /* want it to be above the button */
+    z-index: 1;
+
+    /* for positioning the text in the middle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* for text color change */
+    transition: .4s;
+}
+
+.dark-mode-toggle .dark-mode-toggle-button {
+    width: 50%;
+    height: 100%;
+    background-color: #4272EF;
+    border-radius: 50vh;
+
+    /* necessary for making positioning it within the toggle capsule */
+    position: absolute;
+    z-index: 0;
+
+    /* necessary for animation */
+    -webkit-transition: .6s;
+    transition: .6s;
+}
+
+.dyslexic-toggle {
+/* the toggle button */
+    width: 140px;
+    height: 22px;
+    margin-top: 10px;
+
+    border: 2px solid #4272EF;
+    border-radius: 50vh;
+
+    /* necessary for making positioning child element: calendar-view-toggle-button */
+    position: relative;
+
+    /* necessary for making positioning child element: calendar-view-toggle-label */
+    display: flex;
+}
+
+.dyslexic-toggle .dyslexic-toggle-label {
+    width: 50%;
+    height: 100%;
+    border-radius: 50vh;
+
+    /* want it to be above the button */
+    z-index: 1;
+
+    /* for positioning the text in the middle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* for text color change */
+    transition: .4s;
+}
+
+.dyslexic-toggle .dyslexic-toggle-button {
+    width: 50%;
+    height: 100%;
+    background-color: #4272EF;
+    border-radius: 50vh;
+
+    /* necessary for making positioning it within the toggle capsule */
+    position: absolute;
+    z-index: 0;
+
+    /* necessary for animation */
+    -webkit-transition: .6s;
+    transition: .6s;
+}
+
+.moved-right {
+/* move right by 100% of it */
+    transform: translateX(100%);
+}
+
+.white-text {
+    color: white;
+}
+
+.black-text {
+    color: #4272EF;
+}
+    

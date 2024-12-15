@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/add-task-style.css">
+    <link rel="stylesheet" href="styles/sidebar-style.css">
+    <link rel="stylesheet" href="styles/tooltip.css">
+</head>
+<body>
+
+    <!-- Add task section -->
+    <div class="add-task-section">
+        <h2>Add task <span><button>Move all</button></span></h2>
+        <!-- Task management container -->
+        <div id="task-management-container">
+            <!-- Add task -->
+            <div id="task-form">
+                <div class="form-section">
+                <div class="input-box">
+                    <input type="text" id="task-name" required>
+                    <label>Task name</label>
+                </div>
+                </div>
+
+                <div class="form-section">
+                <div class="input-box">
+                    <input type="text" id="task-description" required>
+                    <label>Task description</label>
+                </div>
+                </div>
+
+                <div class="form-section-2">
+                    <label for="due-date">Due date (optional)</label>
+                    <input type="date" id="due-date" name="due-date">
+                </div>
+
+                <div id="difficulty-impact-container">
+                    <div class="anchor">
+                        <label for="impact">Impact:</label>
+                        <input class="hinted" type="number" id="impact" min="1" max="7" value='1' required>
+                        <div class="speech-bubble">1 - 7</div>
+                    </div>
+                    <div class="anchor">
+                        <label for="difficulty">Difficulty:</label>
+                        <input class="hinted" type="number" id="difficulty" min="1" max="7" value='1' required>
+                        <div class="speech-bubble">1 - 7</div>
+                    </div>
+                </div>
+
+                <!-- Add radio buttons for color selection -->
+                <label>Color:</label>
+                <div class="color-container form-section">
+                    <div class="anchor">
+                        <input type="radio" name="color" value="blue" id="color-blue" checked>
+                        <label class="color-label hinted" for="color-blue">Blue</label>
+                        <div class="speech-bubble">(One-off tasks)</div>
+                    </div>
+
+                    <div class="anchor">
+                        <input type="radio" name="color" value="green" id="color-green">
+                        <label class="color-label hinted" for="color-green">Green</label>
+                        <div class="speech-bubble">(Side-quests)</div>
+                    </div>
+
+                    <div class="anchor">
+                        <input type="radio" name="color" value="red" id="color-red">
+                        <label class="color-label hinted" for="color-red">Red</label>
+                        <div class="speech-bubble">(Tasks with penalty)</div>
+                    </div>
+                </div>
+
+                <button onclick="add_task()">Add Task</button>
+                
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+.anchor {
+    position: relative;
+}
+
+.hinted {
+    position: relative;
+}
+  
+.speech-bubble {
+    /* The tooltip's box. */
+    position: absolute;
+    top: 100%;  /* Position below the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #545454;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 1vh;
+    visibility: hidden; /* Initially hidden */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.speech-bubble::after {
+    /* The tooltip's triangle. */
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #545454 transparent;
+}
+  
+.hinted:hover + .speech-bubble {
+    /* The tooltip's behaior, making it visible. */
+    visibility: visible;
+    opacity: 1;
+}

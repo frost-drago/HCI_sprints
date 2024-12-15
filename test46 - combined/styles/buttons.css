@@ -1,0 +1,41 @@
+.square-button {
+    background-color: #4272EF;
+    max-width: 35px;
+    max-height: 35px;
+    border-radius: 1vh;
+    padding: 2px;
+
+    transition: .2s;
+}
+
+.square-button-alt {
+    background-color: #32BDAD;
+    max-width: 35px;
+    max-height: 35px;
+    border-radius: 1vh;
+    padding: 2px;
+
+    transition: .2s;
+}
+
+.square-button:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #1F4CC0;
+}
+
+.square-button-alt:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #048a7f;
+}
+
+.fitted-image {
+    object-fit: contain;
+    max-width: 35px;
+    max-height: 35px;
+}
+
+.page-close-button {
+    position: inherit;
+    right: 10px;
+    top: 10px;
+}

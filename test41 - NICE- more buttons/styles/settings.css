@@ -1,0 +1,159 @@
+#settings-page {
+    position: absolute;
+    top: 25%;
+    left: calc(50% - 250px);
+
+    width: 500px;
+    height: 50%;
+    background-color: #CAD9FF;
+    border-radius: 1vh;
+    border: 4px solid #4272EF;
+
+    /* doesn't work... */
+    transition: 0.4s ease;
+
+    /* For neatly adjusting child items. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Hidden at first */
+    visibility: hidden;
+}
+
+#settings-page h1,p {
+    color:#4272EF;
+}
+
+.font-size-display {
+    width: 300px; /*same as slider container.*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.font-size-display #small-a {
+    font-size: smaller;
+    margin: 0;
+}
+
+.font-size-display #big-a {
+    font-size: larger;
+    margin: 0;
+}
+
+.side-by-side {
+    width: 300px; /*same as slider container.*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider-container {
+    width: 300px;
+    margin: 20px auto;
+}
+  
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    outline: none;
+    opacity: 0.7;
+
+    /* doesn't work, fix ? */
+    -webkit-transition: .6s;
+    transition: opacity .2s;
+}
+  
+.slider::-webkit-slider-thumb {
+    /* The draggable circle */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4272EF;
+    cursor: pointer;
+
+}
+  
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+
+.toggle-pill {
+/* the toggle button */
+    width: 140px;
+    height: 22px;
+    margin-top: 10px;
+
+    border: 2px solid #4272EF;
+    border-radius: 2vh;
+
+    /* necessary for making positioning child element: calendar-view-toggle-button */
+    position: relative;
+
+    /* necessary for making positioning child element: calendar-view-toggle-label */
+    display: flex;
+}
+
+.toggle-pill .toggle-pill-label {
+    width: 50%;
+    height: 100%;
+    border-radius: 2vh;
+
+    /* want it to be above the button */
+    z-index: 1;
+
+    /* for positioning the text in the middle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* for text color change */
+    transition: .4s;
+}
+
+.toggle-pill .toggle-pill-button {
+    width: 50%;
+    height: 100%;
+    background-color: #4272EF;
+    border-radius: 1vh;
+
+    /* necessary for making positioning it within the toggle capsule */
+    position: absolute;
+    z-index: 0;
+
+    /* necessary for animation */
+    -webkit-transition: .6s;
+    transition: .6s;
+}
+
+.light-dark-mode {
+    height: 40px;
+}
+
+.moved-right {
+/* move right by 100% of it */
+    transform: translateX(100%);
+}
+
+.white-text {
+    color: white;
+}
+
+.black-text {
+    color: #4272EF;
+}
+    

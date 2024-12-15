@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/settings.css">
+    <link rel="stylesheet" href="styles/account.css">
+    <link rel="stylesheet" href="styles/tooltip.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+</head>
+<body>
+    <div class="side-by-side">
+        <!--settings button-->
+        <div class="anchor" id="settings-button">
+            <div class="hinted square-button"><img class="fitted-image" src="images/settings.png"></div>
+            <div class="speech-bubble">settings</div>
+        </div>
+
+        <!--help button-->
+        <div class="anchor">
+            <div class="hinted square-button"><img class="fitted-image" src="images/help.png"></div>
+            <div class="speech-bubble">help</div>
+        </div>
+
+        <!--account button-->
+        <div class="anchor">
+            <div class="hinted square-button" id="account-button"><img class="fitted-image" src="images/account_circle.png"></div>
+            <div class="speech-bubble">account</div>
+        </div>
+    </div>
+
+    <!--settings interface-->
+    <div id="settings-page">
+        <h1>Settings</h1>
+        <div>
+            <p>Font size</p>
+            <div class="font-size-display"><p id="small-a">A</p><p id="big-a">A</p></div>
+            <div class="slider-container">
+                <input type="range" min="1" max="7" value="4" class="slider" id="myRange">
+            </div>
+        </div>
+        <div class="side-by-side">
+            <p>Mode</p>
+            <div class="toggle-pill light-dark-mode">
+                <div class="toggle-pill-label toggle-month white-text"><img class="fitted-image" src="images/wb_sunny.png"></div>
+                <div class="toggle-pill-label toggle-week black-text"><img class="fitted-image" src="images/dark_mode_alt.png"></div>
+                <div class="toggle-pill-button light-dark-mode"></div>
+            </div>
+        </div>
+        <div class="side-by-side">
+            <p>Dyslexic</p>
+            <div class="toggle-pill">
+                <div class="toggle-pill-label toggle-month white-text">Off</div>
+                <div class="toggle-pill-label toggle-week black-text">On</div>
+                <div class="toggle-pill-button"></div>
+            </div>
+        </div>
+
+        <div class="anchor page-close-button" id="settings-close-button">
+            <div class="hinted square-button"><img class="fitted-image" src="images/close.png"></div>
+            <div class="speech-bubble">close settings</div>
+        </div>
+    </div>
+
+    <!--account login-->
+    <div id="account-page">
+        <h2>Hi, account name</h2>
+        <p>account_name@mail.com</p>
+        <div class="side-by-side">
+        <!--sync button-->
+            <div class="anchor">
+                <div class="hinted square-button"><img class="fitted-image" src="images/sync.png"></div>
+                <div class="speech-bubble">sync</div>
+            </div>
+            <!--logout button-->
+            <div class="anchor">
+                <div class="hinted square-button"><img class="fitted-image" src="images/logout.png"></div>
+                <div class="speech-bubble">logout</div>
+            </div>
+        </div>
+        <div class="anchor page-close-button" id="account-close-button">
+            <div class="hinted square-button"><img class="fitted-image" src="images/close.png"></div>
+            <div class="speech-bubble">close</div>
+        </div>
+    </div>
+
+    <!--minical button-->
+    <div class="anchor">
+        <div class="hinted square-button"><img class="fitted-image" src="images/calendar_month.png"></div>
+        <div class="speech-bubble">switch weeks (selection)</div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>

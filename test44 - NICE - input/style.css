@@ -1,0 +1,47 @@
+.new-task {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #E2E2E2;
+    width: 300px;
+}
+
+.input-box {
+    position: relative;
+    width: 300px;
+}
+
+.input-box input {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #545454;
+    outline: none;
+    color: #545454;
+}
+
+.input-box label {
+    position: absolute;
+    left: 0px;
+    pointer-events: none;
+    color: #545454;
+    margin: 0px;
+    transition: 0.2s ease-in-out;
+}
+
+.input-box input:focus {
+    border-bottom: 2px solid #4272EF;
+}
+
+.input-box input:focus ~ label {
+    color: #4272EF;
+    transform: translateY(-10px);
+    font-weight: bold;
+}
+ 
+.input-box input:valid ~ label {
+    transform: translateY(-10px);
+    font-weight: bold;
+}
